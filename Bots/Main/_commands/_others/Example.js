@@ -1,3 +1,5 @@
+
+const { PermissionsBitField } = require('discord.js');
 const { Command } = require("../../../../Global/Structures/Default.Commands");
 
 class Example extends Command {
@@ -16,7 +18,7 @@ class Example extends Command {
 
             // Yetkiye sahip olması gerekenleri belirtiyoruz ayrıca sadece o üyenin kullanması için de ayarlayabilirsiniz üye idsi belirtlemlisiniz.
             // Hem rol hem bitfield olarak yetkileri belirtebilirsiniz.
-            permissions: ["BOT_OWNER","GUILD_OWNER"],
+            permissions: ["BOT_OWNER","GUILD_OWNER", PermissionsBitField.Flags.Administrator],
         });
     }
     
