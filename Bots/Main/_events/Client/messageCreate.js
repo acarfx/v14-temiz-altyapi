@@ -1,4 +1,4 @@
-const { Collection, EmbedBuilder} = require('discord.js');
+const { Collection, EmbedBuilder, PermissionsBitField } = require('discord.js');
 const { Event } = require("../../../../Global/Structures/Default.Events");
 const cooldown = new Collection();
 const ms = require('ms');
@@ -40,7 +40,7 @@ class messageCreate extends Event {
             });
         
             command.onRequest(client, message, args)
-            if(message.guild.ownerId != message.author.id && !client.owners.includes(message.author.id) && !message.member.permissions.has("ADMINISTRATOR")) {
+            if(message.guild.ownerId != message.author.id && !client.owners.includes(message.author.id) && !message.member.permissions.has(PermissionsBitField.Flags.Administrator)) {
                 cooldown.set(`${command.name}${message.author.id}`, Date.now() + command.cooldown)
                 setTimeout(() => {
                     cooldown.delete(`${command.name}${message.author.id}`)
