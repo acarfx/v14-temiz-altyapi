@@ -1,0 +1,14 @@
+const { ACAR } = require('../../Global/Structures/Default.Clients.js');
+let client = global.client = new ACAR({
+    token: "MTAwMDU0ODc4NzgzNzczNTAwMg.GzLgj4.FcuMKRWyJigcuct4BqAmXJJsA5uFCatnmrOTsg",
+    prefix: ["."],
+    owners: ["327236967265861633"],
+    MongoURI: "mongodb://127.0.0.1/acar",
+    _dirname: "Main"
+});
+
+client.fetchCommands(true, true);
+client.fetchEvents()
+client.connect()
+
+
